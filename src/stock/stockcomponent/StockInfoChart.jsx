@@ -16,7 +16,7 @@ const ChartContainer = styled.div`
 `;
 
 const StockInfoChart = ({ chartData }) => {
-  console.log(chartData);
+  // console.log(chartData);
 
   useEffect(() => {
     // Update the series and options when chartData changes

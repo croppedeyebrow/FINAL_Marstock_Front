@@ -110,7 +110,7 @@ const Header = () => {
 
   useEffect(() => {
     const accessToken = Common.getAccessToken();
-    console.log("accessToken", accessToken);
+    // console.log("accessToken", accessToken);
     updateLoginStatus(accessToken);
   }, [isLogin, logout]);
 

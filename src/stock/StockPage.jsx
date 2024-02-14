@@ -149,7 +149,7 @@ const StockPage = () => {
 
   // 데이터 컨트롤 useEffect
   useEffect(() => {
-    const socket = WebSocketComponent("stockList", "", stockList);
+    const socket = WebSocketComponent("stockList", stockList);
     getIndex(socket);
     return () => {
       // 컴포넌트가 언마운트되면 WebSocket 연결을 닫습니다.

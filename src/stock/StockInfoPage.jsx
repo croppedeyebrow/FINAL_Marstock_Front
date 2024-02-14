@@ -90,6 +90,7 @@ const StockInfoPage = () => {
 
   // 구매 내역 조회
   const [buyDtoList, setBuyDtoList] = useState([]);
+  const [price, setPrice] = useState();
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
 
@@ -151,8 +152,10 @@ const StockInfoPage = () => {
         multiDto
       );
       if (res.status === 200) {
-        console.log("구매 내역", res.data);
+        // console.log("구매 내역", res.data);
         setBuyDtoList(res.data.buyDtoList);
+        setPrice(res.data.memberDto?.point);
+        // console.log(res.data.memberDto?.point);
         setTotalPrice(
           res.data.buyDtoList.reduce(
             (total, data) => total + data.buyPrice * data.buyCount,
@@ -193,9 +196,9 @@ const StockInfoPage = () => {
         multiDto
       );
       if (res.data) {
-        alert("구매 완료");
+        alert("매수 완료");
       } else {
-        alert("구매 실패");
+        alert("매수 실패, 매수 가능 시간(09:00 ~ 15:30)");
       }
     } catch (e) {
       console.log(e);
@@ -203,7 +206,36 @@ const StockInfoPage = () => {
   };
 
   // 판매 함수
-  const onClickSell = async () => {};
+  const onClickSell = async () => {
+    try {
+      const accessToken = Common.getAccessToken();
+      const buyDto = {
+        sellCount: sellingNum,
+        sellPrice: sellingNum * stock.stockClose,
+      };
+      const stockDto = {
+        종목명: stock.stockName,
+        종목코드: stock.stockCode,
+      };
+      const multiDto = {
+        accessToken: accessToken,
+        buyDto: buyDto,
+        stockDto: stockDto,
+      };
+      const res = await CommonAxios.postTokenAxios(
+        "buyAndSell",
+        "sell",
+        multiDto
+      );
+      if (res.data) {
+        alert("매도 완료");
+      } else {
+        alert("매도 실패, 매도 가능 시간(09:00 ~ 15:30)");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const stockChartReqDto = {
     stockName: name,
@@ -394,18 +426,7 @@ const StockInfoPage = () => {
                   <StockSellingBox>
                     <SellingTop>
                       <SellingTitle>매도</SellingTitle>
-                      <SellingButton
-                        onClick={() => {
-                          if (
-                            window.confirm(
-                              `매도하려는 수량은 ${sellingNum}개 입니다. 진행하시겠습니까?`
-                            )
-                          ) {
-                            setMessage("매도 성공");
-                            setTimeout(() => setMessage(""), 3000); // 3초 후에 메시지 숨기기
-                          }
-                        }}
-                      >
+                      <SellingButton onClick={() => onClickSell()}>
                         매도
                       </SellingButton>
                       {message && (
@@ -430,20 +451,16 @@ const StockInfoPage = () => {
                         >
                           {message}
                         </div>
-                      )}{" "}
+                      )}
                     </SellingTop>
 
                     <SellingBottom>
                       <SellingItem>
                         <SellingeTag>매입가</SellingeTag>
                         <TageNumber>
-                          {buyDtoList[4]?.buyPrice}
-                          {/* {buyDtoList &&
-                            buyDtoList.map((data, index) => (
-                              <>
-                                <span key={index}>{data.buyPrice}/</span>
-                              </>
-                            ))} */}
+                          {buyDtoList &&
+                            buyDtoList[0]?.buyPrice.toLocaleString()}
+                          ...
                         </TageNumber>
                       </SellingItem>
 
@@ -533,13 +550,15 @@ const StockInfoPage = () => {
                         >
                           {message}
                         </div>
-                      )}{" "}
+                      )}
                     </PurchaseTop>
 
                     <PurchaseBottom>
                       <PurchaseItem>
                         <PurchaseTag>현재보유잔고</PurchaseTag>
-                        <PurchaseNumber>664,280,010</PurchaseNumber>
+                        <PurchaseNumber>
+                          {Number(price).toLocaleString()}
+                        </PurchaseNumber>
                       </PurchaseItem>
 
                       <PurchaseItem>
@@ -551,7 +570,11 @@ const StockInfoPage = () => {
 
                       <PurchaseItem>
                         <PurchaseTag>매수가격</PurchaseTag>
-                        <PurchaseNumber>0</PurchaseNumber>
+                        <PurchaseNumber>
+                          {Number(
+                            purchaseNum * stock.stockClose
+                          ).toLocaleString()}
+                        </PurchaseNumber>
                       </PurchaseItem>
                     </PurchaseBottom>
                   </StockPurchaseBox>
