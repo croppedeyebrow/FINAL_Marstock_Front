@@ -60,6 +60,7 @@ import WebSocketComponent from "../utils/common/WebSocket";
 import CommonAxios from "../utils/common/CommonAxios";
 import { Common } from "../utils/common/Common";
 import StockInfoChart from "./stockcomponent/StockInfoChart";
+import LearningMethodSwitch from "./stockcomponent/LearningSelectSwitch";
 
 const StockInfoPage = () => {
   // InlineContainer의 color = "orange" 를 입력하면 오렌지색 배경이 나오고, 공백("")인 경우는 보라색 배경이 나온다.
@@ -83,6 +84,9 @@ const StockInfoPage = () => {
     column_type: "",
     stock_code: "",
   });
+
+  const [selectedMonth, setSelectedMonth] = useState(1);
+  const [selectLearning, setSelectLearning] = useState(false);
 
   // 구매 내역 조회
   const [buyDtoList, setBuyDtoList] = useState([]);
@@ -203,7 +207,7 @@ const StockInfoPage = () => {
 
   const stockChartReqDto = {
     stockName: name,
-    months: 1,
+    months: selectedMonth,
     columnType: "종가",
     futureDays: 10,
   };
@@ -227,7 +231,17 @@ const StockInfoPage = () => {
     if (stock) {
       getInfo();
     }
-  }, [stock]);
+    if (!selectLearning) {
+      handleChartDataRequest();
+    }
+  }, [stock, selectedMonth]);
+
+  // // 그래프 데이터 요청을 위한 useEffect
+  // useEffect(() => {
+  //   if (!selectLearning) {
+  //     handleChartDataRequest();
+  //   }
+  // }, [selectedMonth]);
 
   return (
     <>
@@ -351,8 +365,29 @@ const StockInfoPage = () => {
               </StockDivLeft>
 
               <StockDivRight>
+                <LearningMethodSwitch setSelectLearning={setSelectLearning} />
                 <StockInfoChart chartData={chartData} />
-                <button onClick={handleChartDataRequest}>버튼</button>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <PurchaseButton onClick={() => setSelectedMonth(1)}>
+                    30일
+                  </PurchaseButton>
+                  <SellingButton onClick={() => setSelectedMonth(6)}>
+                    6개월
+                  </SellingButton>
+                  <PurchaseButton onClick={() => setSelectedMonth(12)}>
+                    1년
+                  </PurchaseButton>
+                  {/* <input /> */}
+                  {/* <button onClick={handleChartDataRequest}>버튼</button> */}
+                </div>
+
                 {/* <StockGraphZone alt="주식그래프" src={stockgraph} /> */}
 
                 <PurchaseBox>
