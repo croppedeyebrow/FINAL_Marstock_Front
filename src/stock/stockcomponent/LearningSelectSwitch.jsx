@@ -26,7 +26,7 @@ const LearningSelectSwitch = ({ setSelectLearning }) => {
   // );
   return (
     <>
-      <div className="your-required-wrapper" style={{ width: 300, height: 50 }}>
+      <div className="your-required-wrapper" style={{ width: 240, height: 40 }}>
         <SwitchSelector
           onChange={onChange}
           options={options}
