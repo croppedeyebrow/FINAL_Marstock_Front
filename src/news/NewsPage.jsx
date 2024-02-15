@@ -4,7 +4,7 @@ import Footer from "../utils/style/Footer";
 import InlineContainer from "../utils/style/InlineContainer";
 import newssumb from "../images/tvnewsimg.png";
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   NewsPageContainer,
@@ -31,8 +31,23 @@ import {
   TvnewsInfo,
 } from "./NewsStyle";
 import NewsSearch from "./newscomponent/NewsSearch";
+import CommonAxios from "../utils/common/CommonAxios";
 
 const NewsPage = () => {
+  useEffect(() => {
+    const getNews = async () => {
+      try {
+        const res = await CommonAxios.getAxios("news", "getNews");
+        if (res.status === 200) {
+          console.log(res.data);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getNews();
+  }, []);
+
   // InlineContainer의 color = "orange" 를 입력하면 오렌지색 배경이 나오고, 공백("")인 경우는 보라색 배경이 나온다.
   const [searchTerm, setSearchTerm] = useState("");
 
