@@ -19,18 +19,34 @@ import NoneBtnModalComponent from "../utils/component/NoneBtnModalComponent";
 import Recommendation from "../images/Recommendation.png"
 import Backstar from  "../images/BackStar.png"
 import BackstarReverse from  "../images/BackStarReverse.png"
+import CommonAxios from "../utils/common/CommonAxios";
 
 
 const MainPage = () => {
    const [ openBanner, setOpenBanner ] = useState(false);
    const [ openInfo, setOpenInfo ] = useState(false);
    const [ isModalOpen, setIsModalOpen ] = useState(false);
+   const [ mainData, setMainData ] = useState([]); 
 
    const closeBanner = () => {
       setOpenBanner(false);
       setOpenInfo(true);
       sessionStorage.setItem('openBanner', 'true');
    }
+
+   useEffect(() => {
+      const fetchMainDataList = async () => {
+         try {
+            const res = await CommonAxios.getAxios("common", "main", "", "");
+            setMainData(res.data);
+            console.log("메인데이터 : ", res.data);
+         } catch (e) {
+            console.error(e);
+         }
+      };
+      fetchMainDataList();
+   }, []);
+
 
    useEffect(() => {
       const sessionOpen = sessionStorage.getItem('openBanner');
