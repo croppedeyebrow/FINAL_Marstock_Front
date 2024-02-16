@@ -20,6 +20,7 @@ import Recommendation from "../images/Recommendation.png"
 import Backstar from  "../images/BackStar.png"
 import BackstarReverse from  "../images/BackStarReverse.png"
 import CommonAxios from "../utils/common/CommonAxios";
+import { useNavigate } from "react-router-dom";
 
 
 const MainPage = () => {
@@ -27,6 +28,8 @@ const MainPage = () => {
    const [ openInfo, setOpenInfo ] = useState(false);
    const [ isModalOpen, setIsModalOpen ] = useState(false);
    const [ mainData, setMainData ] = useState([]); 
+
+   const navigate = useNavigate();
 
    const closeBanner = () => {
       setOpenBanner(false);
@@ -40,12 +43,73 @@ const MainPage = () => {
             const res = await CommonAxios.getAxios("common", "main", "", "");
             setMainData(res.data);
             console.log("메인데이터 : ", res.data);
+
+      //       // 이하 if문들은 단순 데이터 조회여부를 확인하는 콘솔출력용입니다. 
+      //       //뉴스 데이터를 가져오는 코드
+      //       if (res.data) {
+      //          if(res.data.crawlMajorNewsDtoList) { 
+      //          res.data.crawlMajorNewsDtoList.map(item => {
+      //          console.log(`주요뉴스 날짜: ${item.date}`);
+      //          console.log(`주요뉴스 URL: ${item.link}`);
+      //          console.log(`주요뉴스 언론사: ${item.media}`);
+      //          console.log(`주요뉴스 뉴스명: ${item.name}`);
+      //          console.log(`주요뉴스 뉴스내용: ${item.summary}`);
+      //             });
+      //          }
+      //          // 국내지수를 가져오는 코드
+      //          if(res.data.crawlDomesticIndicatorsDtoList) {
+      //             res.data.crawlDomesticIndicatorsDtoList.map(item => {
+      //                console.log(`국내지수 명칭: ${item.crawlDomesticIndicatorsName}`);
+      //                console.log(`국내지수 가격: ${item.crawlDomesticIndicatorsPrice}`);
+      //                console.log(`국내지수 등락률: ${item.crawlDomesticIndicatorsChange}`);
+      //             });
+      //          }
+      //          // 해외지수를 가져오는 코드
+      //          if(res.data.crawlOverseasIndicatorsDtoList) {
+      //             res.data.crawlOverseasIndicatorsDtoList.map(item => {
+      //                console.log(`해외지수 명칭: ${item.name}`);
+      //                console.log(`해외지수 가격: ${item.price}`);
+      //                console.log(`해외지수 등락률: ${item.change}`);
+      //             });
+      //          }
+      //          // 금리를 가져오는 코드
+      //          if(res.data.crawlRateDtoList) {
+      //             res.data.crawlRateDtoList.map(item => {
+      //                console.log(`금리 명칭: ${item.name}`);
+      //                console.log(`금리 가격: ${item.interestRate}`);
+      //                console.log(`금리 등락률: ${item.change}`);
+      //             });
+      //          }
+      //          // 검색상위주식을 가져오는 코드
+      //          if(res.data.crawlSearchDtos) {
+      //             res.data.crawlSearchDtos.map(item => {
+      //                console.log(`검색상위주식 명칭: ${item.searchName}`);
+      //                console.log(`검색상위주식 검색비율: ${item.searchCount}`);
+      //                console.log(`검색상위주식 현재가: ${item.searchUpdown}`);
+      //                console.log(`검색상위주식 전일비: ${item.searchPrice}`);
+      //                console.log(`검색상위주식 거래량: ${item.searchMarketCap}`);
+      //                console.log(`검색상위주식 등락률: ${item.searchChangeRate}`);
+      //             });
+      //          }
+      //          // 거래상위주식을 가져오는 코드
+      //          if(res.data.crawlStockDtoList) {
+      //             res.data.crawlStockDtoList.map(item => {
+      //                console.log(`거래상위주식 명칭: ${item.name}`);
+      //                console.log(`거래상위주식 등락여부: ${item.upDown}`);
+      //                console.log(`거래상위주식 현재가: ${item.price}`);
+      //                console.log(`거래상위주식 등락률: ${item.rate}`);
+      //             });
+      //          }
+      //  } else {
+      //    console.log('mainData is undefined');
+      //  } // 콘솔용 if문 끝 이곳까지 주석처리 하면 mainData 만 콘솔로 출력됩니다.
          } catch (e) {
             console.error(e);
          }
       };
       fetchMainDataList();
    }, []);
+
 
 
    useEffect(() => {
@@ -95,69 +159,85 @@ const MainPage = () => {
                <div id="startbutton" onClick={closeBanner}>시작하기</div>
             </WelcomeBanner>
             <CardContainer open={openInfo}>
-               <div className="card" id="card1">종목토론</div>
-               <div className="card" id="card2">주식 예측</div>
+               <div className="card" id="card1" onClick={() => navigate('/stockpage')}>종목토론</div>
+               <div className="card" id="card2">랜덤주식</div>
                <div className="card" id="card3">MARSTOCK <br/> 모의투자 시작</div>
                <div className="card" id="card4">실시간 차트</div>
             </CardContainer>
             <InfoContainer open={openInfo}>
                <div className="infobox" id="oneinfo">
-                  <div id="infoline">
+                  <div id="infoline" style={{cursor: "pointer"}}>
                      <div id="title">주요뉴스</div>
-                     <div id="infolist">
-                        <div id="name">비트코인 1달만에 30000% 상승</div>
-                        <div id="media">빅뉴스</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="name">비트코인 1달만에 30000% 상승</div>
-                        <div id="media">빅뉴스</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="name">비트코인 1달만에 30000% 상승</div>
-                        <div id="media">빅뉴스</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="name">비트코인 1달만에 30000% 상승</div>
-                        <div id="media">빅뉴스</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="name">비트코인 1달만에 30000% 상승</div>
-                        <div id="media">빅뉴스</div>
-                     </div>
+                     {mainData && mainData.crawlMajorNewsDtoList && mainData.crawlMajorNewsDtoList.slice(0, 10).map((news, index) => (
+                        <div id="infolist" key={index} onClick={() => window.open(news.link, '_blank')} >
+                        <div id="name">{news.name.length > 28? news.name.substring(0, 25) + '...' : news.name}</div>
+                        <div id="media">{news.media.length > 8? news.media.substring(0, 6) + '...' : news.media}</div>
+                        </div>
+                     ))}
                   </div>
                </div>
                <div className="infobox" id="twoinfo">
                   <div id="infoline">
-                     <div id="title">TOP 종목</div>
-                     <div id="infolist">
-                        <div id="rank">1</div>
-                        <div id="name">삼성전자</div>
-                        <div id="price">123,456</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="rank">1</div>
-                        <div id="name">삼성전자</div>
-                        <div id="price">123,456</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="rank">1</div>
-                        <div id="name">삼성전자</div>
-                        <div id="price">123,456</div>
-                     </div>
-                     <div id="infolist">
-                        <div id="rank">1</div>
-                        <div id="name">삼성전자</div>
-                        <div id="price">123,456</div>
-                     </div>
+                     <div id="title">거래상위</div>
+                     {mainData && mainData.crawlStockDtoList && mainData.crawlStockDtoList.slice(0, 10).map((stock, index) => (
+                        <div id="infolist">
+                           <div id="name"style={{ display:"flex", gap:"2rem"}}>
+                              <div id="rank" style={{width:"3rem"}}>{index+1}</div>
+                              {stock.name.length > 25? stock.name.substring(0, 22) + '...' : stock.name}
+                           </div>
+                           <div id="price">{stock.price}</div>
+                        </div>
+                        ))}
                   </div>
                </div>
                <div className="infobox" id="threeinfo">
                   <div  div id="infoline">
                      <div id="title">시장지표</div>
-                     <div id="info1">
-                        <div id="infotitle">국내지수</div>
+                     <div id="threeinfobox">
+                        <div className="threein" id="info1">
+                           <div id="infotitle">국내지수</div>
+                           {mainData && mainData.crawlDomesticIndicatorsDtoList && 
+                           mainData.crawlDomesticIndicatorsDtoList.map((domestic, index) => (
+                            <div id="infoin">
+                              <div className="in" id="inname" style={{width: "9rem"}}>{domestic.crawlDomesticIndicatorsName}</div>
+                              <div className="in" style={{width: "6rem"}}>{domestic.crawlDomesticIndicatorsPrice}</div>
+                              <div className="in" id="inchange" style={{
+                                 width:"13rem",
+                                 color: domestic.crawlDomesticIndicatorsChange.includes('+') ? 'var(--upred)' :
+                                 domestic.crawlDomesticIndicatorsChange.includes('-') ? 'var(--downblue)' : 'white'}}>
+                              {domestic.crawlDomesticIndicatorsChange.replace('+', '　+').replace('-', '　-')}</div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="threein" id="info2">
+                           <div id="infotitle">해외지수</div>
+                           {mainData && mainData.crawlOverseasIndicatorsDtoList && 
+                           mainData.crawlOverseasIndicatorsDtoList.map((domestic, index) => (
+                            <div id="infoin">
+                              <div className="in" id="inname" style={{width: "11rem"}}>{domestic.name}</div>
+                              <div className="in" style={{width: "9rem"}}>{domestic.price}</div>
+                              <div className="in" id="inchange" style={{
+                                 width: "9rem",
+                                 color: domestic.change.includes('상승') ? 'var(--upred)' :
+                                 domestic.change.includes('하락') ? 'var(--downblue)' : 'white'}}>{domestic.change.replace('상승','▲').replace('하락', '▼')}</div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="threein" id="info3">
+                           <div id="infotitle">금리</div>
+                           {mainData && mainData.crawlRateDtoList && 
+                           mainData.crawlRateDtoList.map((rate, index) => (
+                            <div id="infoin">
+                              <div className="in" id="inname" style={{width: "11rem"}}>{rate.name}</div>
+                              <div className="in" style={{width: "5rem"}}>{rate.interestRate}</div>
+                              <div className="in" id="inchange" style={{width: "5rem",
+                                 color: rate.change.includes('상승') ? 'var(--upred)' :
+                                 rate.change.includes('하락') ? 'var(--downblue)' : 'white'
+                           }}>{rate.change.replace('상승','▲').replace('하락', '▼').replace('보합', '')}</div>
+                            </div>
+                          ))}
+                        </div>
                      </div>
-
                   </div>
                </div>
             </InfoContainer>
