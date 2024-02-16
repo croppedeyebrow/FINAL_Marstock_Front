@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CommonAxios from "../utils/common/CommonAxios";
 import { Common } from "../utils/common/Common";
 import { useAuth } from "../context/AuthContext";
-import kakaologin from "../images/kakao_login.png";
+import kakaologin from "../images/kakao_login.svg";
 
 const SigninPage = () => {
   const navigator = useNavigate();
