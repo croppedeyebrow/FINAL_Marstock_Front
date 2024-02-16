@@ -121,6 +121,9 @@ const MainPage = () => {
       }
    }, [])
    
+   const randomstock = () => {
+      setIsModalOpen(true);
+   }
    
 
    return (
@@ -160,9 +163,9 @@ const MainPage = () => {
             </WelcomeBanner>
             <CardContainer open={openInfo}>
                <div className="card" id="card1" onClick={() => navigate('/stockpage')}>종목토론</div>
-               <div className="card" id="card2">랜덤주식</div>
+               <div className="card" id="card2" onClick={() => randomstock }>랜덤주식</div>
                <div className="card" id="card3">MARSTOCK <br/> 모의투자 시작</div>
-               <div className="card" id="card4">실시간 차트</div>
+               <div className="card" id="card4" onClick={() => navigate('/stockpage')}>실시간 차트</div>
             </CardContainer>
             <InfoContainer open={openInfo}>
                <div className="infobox" id="oneinfo">
