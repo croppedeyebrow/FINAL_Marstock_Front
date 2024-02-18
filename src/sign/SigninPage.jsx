@@ -44,7 +44,11 @@ const SigninPage = () => {
         // 회원 권한 설정
         login(res.data.role);
         alert("환영합니다!!");
-        navigator("/");
+        if (res.data.role === "ROLE_USER") {
+          navigator("/");
+        } else {
+          navigator("/admin");
+        }
       } else {
         alert("입력 정보를 확인하시오.");
       }
@@ -60,7 +64,7 @@ const SigninPage = () => {
         <Link to="/">
           <Logo src={headlogo} alt="logo" />
         </Link>
-        <InputContainer style={{ gap : "3rem"}}>
+        <InputContainer style={{ gap: "3rem" }}>
           <div id="title">Login</div>
           <InputBox
             id="inputid"

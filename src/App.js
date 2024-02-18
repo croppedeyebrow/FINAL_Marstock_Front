@@ -37,16 +37,13 @@ function RoutesWithLoading() {
         <SolarSystem />
       ) : (
         <Routes>
-          <Route path="/stockpage" element={<StockPage />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/stockpage/:click" element={<StockPage />} />
 
           <Route path="/" element={<MainPage />} />
           <Route path="/ws" element={<WebSocketComponent />} />
           <Route path="/ws-stockinfo" element={<WsTest />} />
 
           <Route path="/stockInfo/:name" element={<StockInfoPage />} />
-          <Route path="/stockList" element={<StockListPage />} />
-          <Route path="/stockIndex" element={<StockIndexPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/success" element={<Success />} />
           <Route path="/admin" element={<AdminPage />} />

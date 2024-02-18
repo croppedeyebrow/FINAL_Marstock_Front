@@ -169,7 +169,7 @@ const StockInfoPage = () => {
         setBuyDtoList([]);
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 
@@ -201,7 +201,7 @@ const StockInfoPage = () => {
         alert("매수 실패, 매수 가능 시간(09:00 ~ 15:30)");
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 
@@ -233,7 +233,7 @@ const StockInfoPage = () => {
         alert("매도 실패, 매도 가능 시간(09:00 ~ 15:30)");
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 
@@ -245,13 +245,29 @@ const StockInfoPage = () => {
   };
 
   const handleChartDataRequest = async () => {
+    console.log("arima 실행");
     try {
       const res = await CommonAxios.postAxios(
         "stock",
         "chart",
         stockChartReqDto
       );
-      // console.log("chartData 정보 : ", res.data);
+      console.log("arima 정보 : ", res.data);
+      setChartData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLstm = async () => {
+    console.log("lstm 실행");
+    try {
+      const res = await CommonAxios.postAxios(
+        "stock",
+        "lstm",
+        stockChartReqDto
+      );
+      console.log("lstm 정보 : ", res.data);
       setChartData(res.data);
     } catch (error) {
       console.log(error);
@@ -265,15 +281,10 @@ const StockInfoPage = () => {
     }
     if (!selectLearning) {
       handleChartDataRequest();
+    } else {
+      handleLstm();
     }
-  }, [stock, selectedMonth]);
-
-  // // 그래프 데이터 요청을 위한 useEffect
-  // useEffect(() => {
-  //   if (!selectLearning) {
-  //     handleChartDataRequest();
-  //   }
-  // }, [selectedMonth]);
+  }, [selectLearning, selectedMonth]);
 
   return (
     <>
@@ -285,7 +296,6 @@ const StockInfoPage = () => {
             <StockCategory>
               <Category01>{stock.stockName}</Category01>
               <Category02>{stock.stockCode}</Category02>
-              {/* <Category03>KOSPI</Category03> */}
               <Category04>{stockDate}</Category04>
             </StockCategory>
 
@@ -398,7 +408,11 @@ const StockInfoPage = () => {
 
               <StockDivRight>
                 <LearningMethodSwitch setSelectLearning={setSelectLearning} />
-                <StockInfoChart chartData={chartData} />
+                {selectLearning ? (
+                  <StockInfoChart chartData={chartData} />
+                ) : (
+                  <StockInfoChart chartData={chartData} />
+                )}
                 <div
                   style={{
                     display: "flex",

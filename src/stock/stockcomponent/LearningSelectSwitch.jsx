@@ -18,7 +18,7 @@ const LearningSelectSwitch = ({ setSelectLearning }) => {
   ];
 
   const onChange = (newValue) => {
-    console.log(newValue);
+    console.log("newValue :", newValue);
     newValue === "arima" ? setSelectLearning(false) : setSelectLearning(true);
   };
   // const initialSelectedIndex = options.findIndex(
