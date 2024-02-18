@@ -87,6 +87,33 @@ export const Realtimezone = styled.div`
   border-radius: 15px;
   overflow-x: hidden;
 
+  /* Styles for the scrollbar */
+  &::-webkit-scrollbar {
+    width: 1rem; /* Adjust scrollbar thickness */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--mainpurple),
+      var(--mainorange)
+    );
+    height: 1rem;
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      to bottom,
+      var(--mainlightpurple),
+      var(--mainlightorange)
+    );
+  }
+
   @media (max-width: 768px) {
     width: 34rem;
     height: 46rem;
@@ -103,6 +130,34 @@ export const MostViewZone = styled.div`
   background: rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Styles for the scrollbar */
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--mainpurple),
+      var(--mainorange)
+    );
+    height: 1rem;
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      to bottom,
+      var(--mainlightpurple),
+      var(--mainlightorange)
+    );
+  }
 
   @media (max-width: 768px) {
     width: 34rem;
@@ -148,13 +203,13 @@ export const RealTimeBox = styled.div`
 export const TopBox = styled.div`
   position: relative;
   display: flex;
-  width: 50.7rem;
-  height: 2.9rem;
-  gap: 0.5rem;
+  width: 50rem;
+  height: 8rem;
+  gap: 0.4rem;
   font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   line-height: 2.3rem;
 
   color: #ab81ff;
@@ -234,7 +289,8 @@ export const MostViewBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 2.8rem;
+  height: 10rem;
+  top: 3rem;
 
   font-family: "Noto Sans KR";
   font-style: normal;
@@ -258,7 +314,7 @@ export const MostNewsName = styled.div`
   align-items: center;
   /* width: 7.2rem; */
   width: 100%;
-  height: 2.8rem;
+  height: 20rem;
   font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 700;
