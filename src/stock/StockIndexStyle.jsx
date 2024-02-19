@@ -339,6 +339,33 @@ export const LeftIndexMainZone = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+
+  /* Styles for the scrollbar */
+  &::-webkit-scrollbar {
+    width: 1rem; /* Adjust scrollbar thickness */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--mainpurple),
+      var(--mainorange)
+    );
+    height: 1rem;
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      to bottom,
+      var(--mainlightpurple),
+      var(--mainlightorange)
+    );
+  }
 `;
 
 export const LeftIndexMainTitle = styled.div`
@@ -490,6 +517,33 @@ export const IndexTopContainer = styled.div`
   background: rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   overflow-y: auto;
+
+  /* Styles for the scrollbar */
+  &::-webkit-scrollbar {
+    width: 1rem; /* Adjust scrollbar thickness */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--mainpurple),
+      var(--mainorange)
+    );
+    height: 1rem;
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      to bottom,
+      var(--mainlightpurple),
+      var(--mainlightorange)
+    );
+  }
 `;
 
 export const IndexTopTitle = styled.div`
