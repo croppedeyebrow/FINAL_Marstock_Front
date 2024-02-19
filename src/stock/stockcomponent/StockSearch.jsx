@@ -91,26 +91,63 @@ const SearchButton = styled.button`
 
 const SearchResults = styled.div`
   position: absolute;
-  top: 80%;
-  left: 7.7rem;
+  top: 86%;
+  left: 6rem;
   width: 86rem;
   max-height: 300px;
   overflow-y: auto;
   border: 1px solid #ccc;
   border-top: none;
-  border-radius: 0 0 3px 3px;
+  border-radius: 10px 10px 10px 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
   box-sizing: border-box;
-  font-size: 2rem;
-  padding: 2rem;
+  font-size: 1.6rem;
+  padding: 3.8rem;
+
+  /* Styles for the scrollbar */
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--mainpurple),
+      var(--mainorange)
+    );
+    height: 1rem;
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      to bottom,
+      var(--mainlightpurple),
+      var(--mainlightorange)
+    );
+  }
+
+  @media (max-width: 768px) {
+    width: 28rem;
+    left: 3.2rem;
+  }
 `;
 
 const SearchResultItem = styled.div`
   margin-bottom: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  border-top: 1px solid #ccc;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
 `;
 
 const StockSearch = () => {
@@ -129,6 +166,7 @@ const StockSearch = () => {
       );
       if (res.status === 200) {
         setList(res.data);
+        console.log(res.data);
       }
     } catch (e) {
       console.log(e);
