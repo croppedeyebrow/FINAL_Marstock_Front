@@ -13,8 +13,11 @@ const Button = styled.button`
    font-family: "Noto Sans KR", sans-serif;
    color: white;
    position: fixed;
-   left: 95%;
+   left: 90%;
    top: 50%;
+   @media (max-width: 768px) {
+      left: 80%;
+   }
    cursor: pointer;
    opacity: ${props => (props.visible ? 1 : 0)}; /* visible 상태에 따라 opacity 값을 변경 */
   transition: opacity 0.5s ease-in-out; /* opacity에 transition을 적용 */
