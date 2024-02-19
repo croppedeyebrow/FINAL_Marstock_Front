@@ -2,7 +2,7 @@ import Header from "../utils/style/Header";
 import Footer from "../utils/style/Footer";
 import InlineContainer from "../utils/style/InlineContainer";
 import pointwallet from "../images/wallet.png";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useNavigator } from "react";
 import {
   MyPageContainer,
   Pagename,
@@ -51,13 +51,19 @@ import MyPointModal from "./mycomponent/MyPointModal";
 import CommonAxios from "../utils/common/CommonAxios";
 import { Common } from "../utils/common/Common";
 import WebSocketComponent from "../utils/common/WebSocket";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const MyPage = () => {
   // InlineContainer의 color = "orange" 를 입력하면 오렌지색 배경이 나오고, 공백("")인 경우는 보라색 배경이 나온다.
   //내 주식 데이터 10개 반복, 추후에 데이터 불러오면, 무한스크롤? or 페이지네이션 적용.
 
+  // 접근시 로그인 확인용 상태
+  const { updateLoginStatus, isLogin, logout, userRole } = useAuth();
   const [member, setMember] = useState("");
   const [stockList, setStockList] = useState([
+
+  
     {
       name: "",
       code: "",
@@ -66,6 +72,7 @@ const MyPage = () => {
       date: "",
     },
   ]);
+  const navigate = useNavigate();
   const [nameList, setNameList] = useState([]);
   const [socketList, setSocketList] = useState([]);
 
@@ -126,6 +133,10 @@ const MyPage = () => {
   };
 
   useEffect(() => {
+    if (isLogin === !true) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/signin")
+    }
     getMyPage();
   }, []);
 
