@@ -23,6 +23,7 @@ import Backstar from "../images/BackStar.png";
 import BackstarReverse from "../images/BackStarReverse.png";
 import CommonAxios from "../utils/common/CommonAxios";
 import { useNavigate } from "react-router-dom";
+import ScrollRemote from "../utils/component/ScrollRemote";
 const MainPage = () => {
   const navigator = useNavigate();
   // 가이드 내용 표시를 위한 상태
@@ -141,7 +142,7 @@ useEffect(() => {
   if (isModalOpen) {
     const intervalId = setInterval(() => {
       setSelectedStock(selectRandomStock());
-    }, 60); // 3초 동안 매 100ms마다 주식 이름 변경
+    }, 50); // 3초 동안 매 100ms마다 주식 이름 변경
 
     // 3초 후에 주식 이름 변경 중지
     setTimeout(() => {
