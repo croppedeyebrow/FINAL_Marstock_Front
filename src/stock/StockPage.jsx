@@ -193,9 +193,6 @@ const StockPage = () => {
         {showStockDiscussionPage && <StockCommunityPage />}
         {showStockIndexPage && <StockIndexPage all={all} />}
       </StockContainer>
-
-      {/* <InlineContainer color=""></InlineContainer> */}
-
       <Footer />
     </>
   );
