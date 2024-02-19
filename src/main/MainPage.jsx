@@ -208,7 +208,7 @@ const MainPage = () => {
             <div
               className="card"
               id="card4"
-              onClick={() => navigate("/stockpage")}
+              onClick={() => navigate("/stockpage/1")}
             >
               실시간 차트
             </div>
