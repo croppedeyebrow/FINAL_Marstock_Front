@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CommonAxios from "../../utils/common/CommonAxios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchZone = styled.div`
   position: relative;
@@ -153,7 +154,7 @@ const SearchResultItem = styled.div`
 const StockSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [list, setList] = useState([]);
-
+  const navigate = useNavigate();
   // 검색 입력
   const handleSearch = async (event) => {
     setSearchTerm(event.target.value);
@@ -165,6 +166,7 @@ const StockSearch = () => {
         searchTerm
       );
       if (res.status === 200) {
+        console.log(searchTerm);
         setList(res.data);
         console.log(res.data);
       }
@@ -202,7 +204,14 @@ const StockSearch = () => {
         {searchTerm && list.length > 0 && (
           <SearchResults>
             {list.map((item, index) => (
-              <SearchResultItem key={index}>{item}</SearchResultItem>
+              <SearchResultItem
+                key={index}
+                onClick={() => {
+                  navigate(`/stockInfo/${item}`);
+                }}
+              >
+                {item}
+              </SearchResultItem>
             ))}
           </SearchResults>
         )}
