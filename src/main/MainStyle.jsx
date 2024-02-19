@@ -28,7 +28,7 @@ export const Space = styled.div`
 `;
 
 export const Container = styled.div`
-   width: max(76.8rem ,min(100vw ,120rem));
+   width: max(76.8rem ,min(94vw ,120rem));
    height: auto;
    display: flex;
    flex-direction: column;
@@ -375,7 +375,7 @@ export const CardContainer = styled.div`
       width: 94vw;
    }
   .card {
-   width: max(20rem, min(23vw, 27rem));
+   width: max(18rem, min(23vw, 27rem));
    height: max(20rem, min(30vw, 40rem));
    background-color: red;
    border-radius: 3rem;
