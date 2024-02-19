@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import styled from "styled-components";
 
 const Button = styled.button`
+   z-index: 5;
    width: 6rem;
    height: 6rem;
    border-radius: 50%;
