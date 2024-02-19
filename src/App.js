@@ -19,6 +19,7 @@ import SolarSystem from "./utils/style/OrbitPage";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import KakaoLogin from "./api/KaKao";
+import ScrollRemote from "./utils/component/ScrollRemote";
 
 function RoutesWithLoading() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +32,7 @@ function RoutesWithLoading() {
 
   return (
     <>
+        <ScrollRemote/>
       {isLoading ? (
         <SolarSystem />
       ) : (
