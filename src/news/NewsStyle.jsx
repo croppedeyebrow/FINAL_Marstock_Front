@@ -21,7 +21,7 @@ export const Example = styled.div`
 export const NewsPageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  height: auto;
+  height: 230rem;
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0),
@@ -301,7 +301,7 @@ export const MostViewBox = styled.div`
   color: #ffffff;
 
   @media (max-width: 768px) {
-    width: 32rem;
+    width: 100%;
 
     font-size: 0.8rem;
   }
@@ -315,6 +315,7 @@ export const MostNewsName = styled.div`
   /* width: 7.2rem; */
   width: 100%;
   height: 20rem;
+
   font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 700;
@@ -323,7 +324,7 @@ export const MostNewsName = styled.div`
   color: var(--mainlightorange);
 
   @media (max-width: 768px) {
-    width: 6rem;
+    width: 100%;
     font-size: 0.8rem;
   }
 `;
@@ -370,12 +371,12 @@ export const NewsBottomTitle = styled.div`
 export const NewsBottomContainer = styled.div`
   display: grid;
   position: relative;
-  border: 1px solid black;
+
   width: 100%;
   height: 100%;
   gap: 2rem;
   grid-template-columns: repeat(2, 54rem);
-  grid-template-rows: repeat(3, 12.5rem);
+  grid-template-rows: repeat(5, 12.5rem);
 
   @media (max-width: 768px) {
     width: 34rem;
@@ -406,7 +407,9 @@ export const NewsImgBox = styled.img`
   position: relative;
   width: 14.8rem;
   height: 8.3rem;
-  border: 1px solid black;
+  border: none;
+  border-radius: 1.5rem;
+  background: rgba(255, 184, 136, 0.12);
 
   @media (max-width: 768px) {
     width: 8rem;
@@ -422,7 +425,6 @@ export const NewsInfoBox = styled.div`
   gap: 1.5rem;
   width: 34rem;
   height: 8.3rem;
-  border: 1px solid white;
 
   @media (max-width: 768px) {
     width: 20rem;
