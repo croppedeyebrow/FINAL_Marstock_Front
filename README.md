@@ -31,7 +31,6 @@
 </br>
 
 <h4>타겟 사용자 </h4>
-    <h4>타겟 사용자</h4>
     <h5>🩻 미성년 주식 투자자 및 주식 공부를 시키고 싶은 학부모&담임교사  </h5>
     <h5>🩻 본격적 주식 투자 전에, 은행 계좌 연동 없이 주식을 접하고 싶은 학생</h5>
     <h5>🩻 수업에서 모의 주식 대회를 개최하고 싶은 교수님.</h5>
@@ -55,6 +54,9 @@
 ![image](https://github.com/user-attachments/assets/d5f50b0f-b4e7-4467-a7ba-40d47721c66c)
 
 ![image](https://github.com/user-attachments/assets/992ee656-c9ba-4983-b8bd-e41afc526176)
+
+![image](https://github.com/user-attachments/assets/481f9b0f-173c-4e3a-83ed-373d8ab8bf06)
+
 
 </br>
 ----
@@ -118,28 +120,34 @@
    </br>
   </br>
 
- <h4>담당 업무 세부내역 정리</h4>
+ <h4>담당 업무 완성본</h4>
  
     
-∇ 음악 리스트 페이지 </br>
-                [ 이름/작곡가별 검색 기능, 장르별 검색, 음악 재생, 페이지네이션 ] </br>
+∇ 주식 페이지 </br>
+ [ 파이썬에서 넘겨주는 주식 API 정보를 파싱해서 프론트에 렌더, 각 종목별 세부 데이터로 이동, 모의매도*매수 기능, 엘라스틱 예측 데이터 ] </br>
+![image](https://github.com/user-attachments/assets/7f4fbcbd-166a-4cd9-9dfc-140264f4724e)
+![image](https://github.com/user-attachments/assets/b898d0db-d1d8-42b3-aeae-0aa9bf6f9496)
+![image](https://github.com/user-attachments/assets/d4d5880a-3c47-4858-b544-30f8525ce9c8)
+![image](https://github.com/user-attachments/assets/ec25d7f7-1e74-44f6-ac85-f00dff037c2f)
 
- ![image](https://github.com/user-attachments/assets/4d933cb5-76b5-4e38-9caf-6dd388dfdc27)
- ![image](https://github.com/user-attachments/assets/1a691f58-7528-4a56-aa15-846c8da3fa8f)
+
+
 </br>
 
- ∇ 음악 정보 페이지 </br>
-                [ 등록된 정보 불러오기, 좋아요 기능, 음원 구매 기능, 음원 별 댓글 기능, 음악 재생 ] </br>
+ ∇ 뉴스 페이지 </br>
+                [ 가장 많이 본 뉴스,  실시간 속보,  헤드라인 뉴스 ] </br>
                 
-![image](https://github.com/user-attachments/assets/b8a7fd5c-e291-4164-a23e-f83c1c05d0f4)
-![image](https://github.com/user-attachments/assets/53861c59-34fd-4ea9-b509-c0c3b1d11a96)
+![image](https://github.com/user-attachments/assets/4fafe0ad-42b2-4769-ae3d-5c9734909e49)
+![image](https://github.com/user-attachments/assets/4c3cbc9a-6158-4049-9d4a-9b7c66468236)
+
 
 
  </br>
-∇ 음악 등록 페이지 </br>
-                [ 음악 정보 입력, firebase 활용 이미지 등록 ]
+∇ 종목 토론 페이지 </br>
+                [ 댓글 형식의 토론 ]
                 
-![image](https://github.com/user-attachments/assets/7a0b313a-3ef3-4886-9227-bc5199dba91c)
+![image](https://github.com/user-attachments/assets/a63d2528-1efb-4be4-a228-3ead66676409)
+
 
 
 
