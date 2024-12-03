@@ -9,35 +9,52 @@
 ----
 <h2>프로덕트 개요</h2>
 
-<h3>메인 주제 : 인디음악가 & 아마추어들을 위한 음원 공유 사이트</h3>
+<h3>메인 주제 : 주식 분석 및 예측 시스템과 모의 투자 사이트.</h3>
 
 <h3>프로젝트 기획 목적 </h3>
 <h4>기존 서비스의 문제점(고객 불편사항)</h4>
-       <h5> 1.  콘텐츠 다양성 부족 : </br> 기존 플랫폼에서는 아이돌이나 주류 음악 팬덤이 리스트를 장악하고 있어서, 다양한 장르와 신진 아티스트의 음악이 주목받이 어려웠습니다. </h5> 
-       <h5> 2.  유저 참여의 한계 : </br> 일반 사용자들은 댓글이나 좋아요 등의 기본적인 인터렉션 외에는 플랫폼에 참여할 수 있는 방법이 제한적입니다. </h5> 
+       <h5> 미성년 혹은 특정 은행 계좌가 업슨 사람들에게는 주식이라는 금융 컨텐츠에 접근 및 학습이 어려움. </h5> 
+       <h5> 주식정보 따로 모의투자 따로 있는 서비스들이 많았음. </h5> 
 
-<h5>🩻 위의 기존 문제점들을 해결하고자하는 목표로, Code8 프로젝트는 </br>사용자들이 단순한 소비자를 넘어서 적극적인 참여자가 될 수 있는 환경을 만들고자 했습니다.🩻</h5>       
+<h5>🩻 위의 기존 문제점들을 해결하고자하는 목표로, Code8 프로젝트는 </br>사용자들이 주식이라는 금융 컨텐츠에 대한 접근 방지턱을 낮춰주고자 합니다.🩻</h5>       
 </br>
 ---
 
 <h4>프로덕트 주요 특징</h4>
 
-<h5>🩻 다양성 촉진 : 인디가수 & 아마추어 뮤지션 & 취미로 음악을 만들어서 공유하고 싶은 일반인들의 음악활동을 위한 전용 플랫폼 제공</h5>
-<h5>🩻 사용자 참여 확대: 단순한 음악 감상을 넘어서, 사용자들이 직접 콘텐츠를 공유하고 팬덤을 만들 수 있는 기능 구현.</h5>
-<h5>🩻 커뮤니티 중심 : 아티스트와 팬 사이의 직접적인 소통과 협업을 장려하는 기능 도입</h5>
-<h5>🩻 취향 중심 : 같은 음악 취향을 공유하는 사람들과의 연결&소통</h5>
-<h5>🩻 나도 굿즈를 판매? : 누구나 굿즈 판매를 등록 가능</h5>
+<h5>🩻 주식 API 활용, 실시간 차트 반영  </h5>
+<h5>🩻 주식 데이터 기반, 가격 예측[엘라스틱 서치 활용]</h5>
+<h5>🩻 주식 모의 투자.</h5>
+<h5>🩻 토론 커뮤니티 : 각 종목별 토론방</h5>
+<h5>🩻 금융 관련 뉴스 실시간 크롤링 </h5>
 
 </br>
+
+<h4>타겟 사용자 </h4>
+    <h4>타겟 사용자</h4>
+    <h5>🩻 미성년 주식 투자자 및 주식 공부를 시키고 싶은 학부모&담임교사  </h5>
+    <h5>🩻 본격적 주식 투자 전에, 은행 계좌 연동 없이 주식을 접하고 싶은 학생</h5>
+    <h5>🩻 수업에서 모의 주식 대회를 개최하고 싶은 교수님.</h5>
+    <h5>🩻 산발된 모의 주식 투자 프로그램과 뉴스 앱의 지친 직장인</h5>
+    </br>
+
+    
+
+
 ---
 <h4>레퍼런스 정리</h4>
- 🩻[레퍼런스 정리](https://neulsom-insight.notion.site/a86aaff066364d81828ea2d5188631fc)
+ 🩻[레퍼런스 정리](https://neulsom-insight.notion.site/030c517d9dc34939a9f7203fdb5591ea)
 
 </br>
 ---
 <h4>세부 기획서 정리-notion</h4>
-🩻 [Notion](https://neulsom-insight.notion.site/Project-Page-a49bc0583f504082a454e867fb52d89c)
+🩻 [Notion](https://neulsom-insight.notion.site/Project-Page-a49bc0583f504082a454e867fb52d89c?p=2fa21b49c9f54a0bb742eed62292d262&pm=c)
 
+![image](https://github.com/user-attachments/assets/24b23e3c-927a-46db-a8f7-b7df10f711a2)
+
+![image](https://github.com/user-attachments/assets/d5f50b0f-b4e7-4467-a7ba-40d47721c66c)
+
+![image](https://github.com/user-attachments/assets/992ee656-c9ba-4983-b8bd-e41afc526176)
 
 </br>
 ----
@@ -69,6 +86,8 @@
 
 ![Mysql](https://img.shields.io/badge/mysql-4479A1.svg?&style=for-the-badge&logo=mysql&logoColor=white)
 ![firebase](https://img.shields.io/badge/firebase-DD2C00.svg?&style=for-the-badge&logo=firebase&logoColor=white)
+![elasticsearch](https://img.shields.io/badge/elasticsearch-005571.svg?&style=for-the-badge&logo=elasticsearch&logoColor=white)
+
 
 </br>
 
@@ -79,6 +98,7 @@
 ![intellijidea](https://img.shields.io/badge/intellijidea-000000.svg?&style=for-the-badge&logo=intellijidea&logoColor=white) 
 ![VSCode](https://img.shields.io/badge/vscode-2C2C32.svg?&style=for-the-badge&logo=vscode&logoColor=white) 
 
+</br>
 </br>
 
 <h4>담당 업무 정리</h4>
