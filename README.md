@@ -101,17 +101,34 @@
 </br>
 </br>
 
+<h4>전체 페이지 분류</h4>
+
+![image](https://github.com/user-attachments/assets/885ec1e3-9d17-4845-ad41-2072cf20334b)
+![image](https://github.com/user-attachments/assets/5ef6839d-89c7-4d38-ab8b-81126ac34037)
+![image](https://github.com/user-attachments/assets/24d97bd9-7c4a-4f64-938d-6e3097b68955)
+
+
+</br>
+
 <h4>담당 업무 정리</h4>
+    <h5>∇ 화면 레이아웃 구성 </h5>
     <h5>∇ 디자인 및 기획 </h5>
-    <h5>∇ 담당한 페이지 </h5>
-    </br>
-            ∇ 음악 리스트 페이지 </br>
+    <h5>∇ 전체 페이지 프론트엔드. </h5>
+    
+   </br>
+  </br>
+
+ <h4>담당 업무 세부내역 정리</h4>
+ 
+    
+∇ 음악 리스트 페이지 </br>
                 [ 이름/작곡가별 검색 기능, 장르별 검색, 음악 재생, 페이지네이션 ] </br>
 
  ![image](https://github.com/user-attachments/assets/4d933cb5-76b5-4e38-9caf-6dd388dfdc27)
  ![image](https://github.com/user-attachments/assets/1a691f58-7528-4a56-aa15-846c8da3fa8f)
 </br>
-            ∇ 음악 정보 페이지 </br>
+
+ ∇ 음악 정보 페이지 </br>
                 [ 등록된 정보 불러오기, 좋아요 기능, 음원 구매 기능, 음원 별 댓글 기능, 음악 재생 ] </br>
                 
 ![image](https://github.com/user-attachments/assets/b8a7fd5c-e291-4164-a23e-f83c1c05d0f4)
@@ -119,7 +136,7 @@
 
 
  </br>
-            ∇ 음악 등록 페이지 </br>
+∇ 음악 등록 페이지 </br>
                 [ 음악 정보 입력, firebase 활용 이미지 등록 ]
                 
 ![image](https://github.com/user-attachments/assets/7a0b313a-3ef3-4886-9227-bc5199dba91c)
